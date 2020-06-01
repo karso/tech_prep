@@ -1,0 +1,29 @@
+1. Given a range of hostnames, email me a single list of hosts running the wrong
+number of instances of a process. Don't worry about authentication,
+assume ssh keys are in place for user 'root'.
+Hostname range: web0001.company.com. Process name: "app"
+Number of running "app" instances when healthy: 4
+
+Hint: ps -aux output and grep only perfect match - trick here is to know how to
+parse only the given string. Candidates usually use regex to find the pattern.
+
+2. Implement tail
+
+3. Log file parse - Print number of log events per minute.
+
+4. Copy or move files from one directory to the other -
+
+Hint: This one is simple but usually asked to see if candidate demonstrates
+systems skills or not. For example, does the candidate just copy over a file or
+does sanity checks before copying e.g: permissions, existence of destination
+directory, space constraints etc.
+
+5. Find a file in a directory tree or implement bash find command
+
+6. Write a script in Python that lists all duplicate files in a directory.
+
+7. How would you search a 100GB log file for entries matching $Pattern?
+
+8. Take a logfile and extract the unique IP addresses along with a count of each
+
+9. Test candidates ability to parse a json file available at a REST API endpoint.
