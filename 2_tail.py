@@ -2,7 +2,25 @@ import sys
 import os
 
 def tail(file, line=20):
-    print "Tailing", file, "for", line, "lines..."
+    print "Tailing", file, "for", line, "lines...\n"
+    print "----------------"
+    buffer_size = 8192
+    lines = []
+    block = -1
+
+    with open(file, 'r') as f:
+        while len(lines) < line:
+            try:
+                f.seek(buffer_size * block, os.SEEK_END)
+            except:
+                f.seek(0, 0)
+                lines = f.readlines()
+                break
+            block -= 1
+            lines = file.readlines()
+    for l in lines[-line:]:
+        print l
+    print "----------------"    
 
 def realfile(file):
     if os.path.isfile(file):
@@ -29,6 +47,6 @@ if __name__ == "__main__":
     elif len(sys.argv) == 3:
         file = realfile(sys.argv[1])
         line = realdigit(sys.argv[2])
-        tail(file, line)
+        tail(file, int(line))
     else:
         usage(sys.argv[0])
