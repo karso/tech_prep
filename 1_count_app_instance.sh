@@ -5,7 +5,9 @@
 ##  Assume SSH user is called 'user'
 
 
-# what if appXXXX (where X=[0-9]) is acceptable but not appYYYY (where Y=[a-z,A-Z])
+#   ToDo: What if appXXXX (where X=[0-9]) is acceptable
+# but not appYYYY (where Y=[a-z,A-Z]) - Trivial; grep further
+# ToDo: Introduce parallelism
 
 HostnamesList="/path/to/hostnames.txt"
 SSHKey="/path/to/ssh-key.pri"
