@@ -1,7 +1,6 @@
 # This code implements linux 'head -n N' command
 import sys
 import os
-import time
 
 def realfile(file):
     if os.path.isfile(file):
@@ -23,11 +22,13 @@ def usage():
 def head(file, lines=20):
     stored_lines = []
     buffer_size = 1024
-    block = 1
+    fp = True
     with open(file, 'r') as f:
-        while len(stored_lines) < lines:
+        while len(stored_lines) < lines and fp != '':
             stored_lines = f.readlines(buffer_size)
-    for line in stored_lines[:int(lines)]:
+            fp = f.read(buffer_size)
+
+    for line in stored_lines[:lines]:
         print line
 
 if __name__ == '__main__':
@@ -41,4 +42,4 @@ if __name__ == '__main__':
     else:
         usage()
 
-# ToDo: Need to handle very small files or very large number of lines.        
+# ToDo: Need to handle very small files or very large number of lines.
